@@ -160,7 +160,7 @@ export const BLOG_POSTS = [
     slug: 'aramkimaradas-mit-tegyek',
     title: 'Áramkimaradás – Mit Tegyek? Lépések és Mikor Hívjak Villanyszerelőt',
     metaTitle: 'Áramkimaradás Mit Tegyek? Sürgős Villanyszerelő Pest Megye | Villanymester',
-    metaDescription: 'Áramkimaradás esetén mit tegyen lépésről lépésre ✓ Mikor hívjon villanyszerelőt? ✓ Sürgős kiszállás 2-4h Pest megyében ➤ +36 20 555 7890',
+    metaDescription: 'Áramkimaradás esetén mit tegyen lépésről lépésre ✓ Mikor hívjon villanyszerelőt? ✓ Sürgős kiszállás 2-4h Pest megyében ➤ +36 20 555 7891',
     date: '2025-02-20',
     readTime: '5 perc',
     category: 'Hibaelhárítás',
