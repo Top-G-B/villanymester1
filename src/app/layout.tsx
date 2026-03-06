@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     description: SITE.description,
   },
   robots: { index: true, follow: true },
+  verification: { google: 'Y5rvs2wu1F3oSZc1bh8lS_nHEfOOAqcGNftJq0mwQMY' },
   alternates: { canonical: SITE.url },
 }
 

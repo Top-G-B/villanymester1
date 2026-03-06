@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE.url}/arak/`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE.url}/rolunk/`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${SITE.url}/kapcsolat/`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${SITE.url}/referenciak/`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE.url}/szolgaltatasok/`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE.url}/blog/`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
   ]
@@ -16,11 +17,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${SITE.url}/${c.slug}/`, lastModified: now, changeFrequency: 'weekly' as const, priority: 0.9
   }))
   const services: MetadataRoute.Sitemap = [
-    { url: `${SITE.url}/szolgaltatasok/hibaelharitas/`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${SITE.url}/szolgaltatasok/lakas-felujitas/`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    ...SERVICES.map(s => ({
+      url: `${SITE.url}/szolgaltatasok/${s.slug}/`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.75
+    })),
     { url: `${SITE.url}/szolgaltatasok/elektromos-auto-tolto/`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE.url}/szolgaltatasok/napelem-bekotes/`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE.url}/szolgaltatasok/okosotthon/`, lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
+    { url: `${SITE.url}/szolgaltatasok/hibaelharitas/`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${SITE.url}/szolgaltatasok/lakas-felujitas/`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE.url}/szolgaltatasok/ipari-villanyszereles/`, lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
   ]
   const blog: MetadataRoute.Sitemap = BLOG_POSTS.map(p => ({
