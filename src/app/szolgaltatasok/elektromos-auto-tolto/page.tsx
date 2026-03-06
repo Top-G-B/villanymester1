@@ -76,11 +76,12 @@ export default function EVToltoPage() {
                 <h2 className="text-2xl font-black text-gray-900 mb-6">Töltő típusok és árak</h2>
                 <div className="grid gap-4">
                   {[
-                    { kw:'3,7 kW', type:'Lassú töltő', time:'12–18 óra / töltés', price:'50 000–80 000 Ft', best:false, desc:'Megerősített aljzat, gyári töltőkábellel. Ideális kis megtett kilométerhez.' },
-                    { kw:'11 kW', type:'Wallbox – LEGNÉPSZERŰBB', time:'4–6 óra / töltés', price:'120 000–180 000 Ft', best:true, desc:'Az otthoni töltés aranystandardja. Minden elektromos autóhoz megfelelő.' },
-                    { kw:'22 kW', type:'Háromfázisú gyorstöltő', time:'2–3 óra / töltés', price:'180 000–250 000 Ft', best:false, desc:'Ha az autó támogatja. Nagy megtett kilométerekhez ideális.' },
+                    { kw:'3,7 kW', type:'Lassú töltő', time:'12–18 óra / töltés', price:'50 000–80 000 Ft', best:false, desc:'Megerősített aljzat, gyári töltőkábellel. Ideális kis megtett kilométerhez.', img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80', imgAlt:'Lassú EV töltő', recommend:'🏷️ Ajánlott: Keba P20, Schneider Electric EVlink – megbízható belépő szintű megoldás.' },
+                    { kw:'11 kW', type:'Wallbox – LEGNÉPSZERŰBB', time:'4–6 óra / töltés', price:'120 000–180 000 Ft', best:true, desc:'Az otthoni töltés aranystandardja. Minden elektromos autóhoz megfelelő.', img:'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=400&q=80', imgAlt:'11 kW Wallbox', recommend:'🏷️ Ajánlott: Keba KeContact P30 (legnépszerűbb HU-ban), Wallbox Pulsar Plus, ABB Terra AC W11 – WiFi/app vezérléssel.' },
+                    { kw:'22 kW', type:'Háromfázisú gyorstöltő', time:'2–3 óra / töltés', price:'180 000–250 000 Ft', best:false, desc:'Ha az autó támogatja. Nagy megtett kilométerekhez ideális.', img:'https://images.unsplash.com/photo-1647166545674-ce28ce93bdca?w=400&q=80', imgAlt:'22 kW háromfázisú töltő', recommend:'🏷️ Ajánlott: Keba KeContact P30 22kW, Wallbox Commander 2, ABB Terra AC W22 – pl. Renault Zoe, BMW i3 tulajdonosoknak.' },
                   ].map(t => (
                     <div key={t.kw} className={`rounded-2xl border-2 p-6 ${t.best ? 'border-amber-400 bg-amber-50' : 'border-gray-200 bg-white'}`}>
+                      <img src={t.img} alt={t.imgAlt} className="w-full h-36 object-cover rounded-xl mb-4" />
                       <div className="flex flex-wrap gap-3 items-start justify-between mb-3">
                         <div>
                           <div className="flex items-center gap-2 mb-1">
@@ -96,6 +97,7 @@ export default function EVToltoPage() {
                       </div>
                       <p className="text-gray-600 text-sm mb-2">{t.desc}</p>
                       <div className="text-xs text-gray-400">⏱ Töltési idő (60 kWh): {t.time}</div>
+                      <p className="text-xs text-gray-500 italic mt-2">{t.recommend}</p>
                     </div>
                   ))}
                 </div>

@@ -31,6 +31,15 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   if (!post) notFound()
   const related = BLOG_POSTS.filter(p => p.slug !== post.slug).slice(0, 3)
 
+  const blogImages: Record<string, string> = {
+    'villanyszereles-ar-lista-2025': 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80',
+    'elektromos-auto-tolto-otthon-telepites': 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800&q=80',
+    'napelem-villanyszerelo-feladatai': 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80',
+    'aramkimaradas-mit-tegyek': 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80',
+    'okosotthon-villanyszerelo-szerepe': 'https://images.unsplash.com/photo-1558002038-1055907df827?w=800&q=80',
+    'villanyszereles-felujitas-mire-figyelj': 'https://images.unsplash.com/photo-1581092334651-ddf19d979f4f?w=800&q=80',
+  }
+
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -85,6 +94,9 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 max-w-5xl mx-auto">
 
             <article className="lg:col-span-2 min-w-0">
+              {blogImages[post.slug] && (
+                <img src={blogImages[post.slug]} alt={post.title} className="w-full h-64 object-cover rounded-2xl mb-8" />
+              )}
               <div
                 className="prose prose-gray prose-headings:font-black prose-h2:text-xl prose-h2:mt-8 prose-h3:text-lg prose-a:text-amber-600 prose-strong:text-gray-900 prose-ul:space-y-1 max-w-none text-gray-700 leading-relaxed"
                 dangerouslySetInnerHTML={{ __html: post.content }}
