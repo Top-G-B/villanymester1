@@ -35,6 +35,7 @@ export default function Header() {
                 {[
                   ['⚡ Hibaelhárítás','/szolgaltatasok/hibaelharitas/'],
                   ['🏠 Lakásfelújítás','/szolgaltatasok/lakas-felujitas/'],
+                  ['🔧 Lakásfelújítás útmutatók','/lakasfelujitas/'],
                   ['🔌 EV töltő telepítés','/szolgaltatasok/elektromos-auto-tolto/'],
                   ['☀️ Napelem bekötés','/szolgaltatasok/napelem-bekotes/'],
                   ['🤖 Okosotthon','/szolgaltatasok/okosotthon/'],
@@ -71,7 +72,7 @@ export default function Header() {
               </Link>
             ))}
             <div className="text-xs font-bold text-gray-400 uppercase tracking-wider px-2 mt-3 mb-2">Szolgáltatások</div>
-            {[['Hibaelhárítás','/szolgaltatasok/hibaelharitas/'],['Lakásfelújítás','/szolgaltatasok/lakas-felujitas/'],['EV töltő','/szolgaltatasok/elektromos-auto-tolto/'],['Napelem bekötés','/szolgaltatasok/napelem-bekotes/'],['Okosotthon','/szolgaltatasok/okosotthon/'],['Ipari','/szolgaltatasok/ipari-villanyszereles/']].map(([l,h]) => (
+            {[['Hibaelhárítás','/szolgaltatasok/hibaelharitas/'],['Lakásfelújítás','/szolgaltatasok/lakas-felujitas/'],['Lakásfelújítás útmutatók','/lakasfelujitas/'],['EV töltő','/szolgaltatasok/elektromos-auto-tolto/'],['Napelem bekötés','/szolgaltatasok/napelem-bekotes/'],['Okosotthon','/szolgaltatasok/okosotthon/'],['Ipari','/szolgaltatasok/ipari-villanyszereles/']].map(([l,h]) => (
               <Link key={h} href={h} onClick={() => setOpen(false)} className="block px-3 py-2.5 rounded-lg hover:bg-amber-50 text-gray-700 font-medium text-sm">{l}</Link>
             ))}
             <div className="border-t border-gray-100 mt-3 pt-3">

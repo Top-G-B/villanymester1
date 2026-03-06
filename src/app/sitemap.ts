@@ -30,5 +30,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blog: MetadataRoute.Sitemap = BLOG_POSTS.map(p => ({
     url: `${SITE.url}/blog/${p.slug}/`, lastModified: new Date(p.date), changeFrequency: 'monthly' as const, priority: 0.65
   }))
-  return [...base, ...cities, ...services, ...blog]
+  const lakasfelujitas: MetadataRoute.Sitemap = [
+    { url: `${SITE.url}/lakasfelujitas/`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${SITE.url}/lakasfelujitas/villanyszereles-uj-epuletbe/`, lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
+    { url: `${SITE.url}/lakasfelujitas/furdoszoba-villanyszereles/`, lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
+  ]
+  return [...base, ...cities, ...services, ...blog, ...lakasfelujitas]
 }

@@ -43,7 +43,7 @@ export default function HomePage() {
       {/* ── HERO ── */}
       <section className="text-white py-20 md:py-28 relative overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{backgroundImage: "url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1920&q=80')"}}/>
-        <div className="absolute inset-0 bg-gray-900/75"/>
+        <div className="absolute inset-0 bg-black/60"/>
         <div className="container-main relative">
           <div className="max-w-3xl">
             <div className="badge mb-6 text-sm">⚡ Pest megye megbízható villanyszerelője</div>
