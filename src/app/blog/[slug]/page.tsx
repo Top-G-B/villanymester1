@@ -96,8 +96,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
             <article className="lg:col-span-2 min-w-0">
               {blogImages[post.slug] && (
-                <div className="relative w-full h-64 rounded-2xl overflow-hidden mb-8">
-                  <Image src={blogImages[post.slug]} alt={post.title} fill className="object-cover" />
+                <div className="relative w-full h-64 overflow-hidden mb-8">
+                  <Image src={blogImages[post.slug]} alt={post.title} fill priority className="object-cover rounded-2xl" />
                 </div>
               )}
               <div

@@ -49,6 +49,7 @@ export default function HomePage() {
           fill
           priority
           className="object-cover"
+          aria-hidden="true"
         />
         <div className="absolute inset-0 bg-black/60"/>
         <div className="container-main relative">
