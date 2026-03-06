@@ -15,6 +15,8 @@ export const SITE = {
 export const CITIES = [
   {
     slug: 'villanyszerelo-erd',
+    suffixOn: 'Érden',
+    suffixAdj: 'érdi',
     name: 'Érd',
     county: 'Pest megye',
     population: '70 000',
@@ -36,6 +38,8 @@ export const CITIES = [
   },
   {
     slug: 'villanyszerelo-godollö',
+    suffixOn: 'Gödöllőn',
+    suffixAdj: 'gödöllői',
     name: 'Gödöllő',
     county: 'Pest megye',
     population: '35 000',
@@ -57,6 +61,8 @@ export const CITIES = [
   },
   {
     slug: 'villanyszerelo-dunakeszi',
+    suffixOn: 'Dunakeszin',
+    suffixAdj: 'dunakeszi',
     name: 'Dunakeszi',
     county: 'Pest megye',
     population: '42 000',
@@ -78,6 +84,8 @@ export const CITIES = [
   },
   {
     slug: 'villanyszerelo-szentendre',
+    suffixOn: 'Szentendrén',
+    suffixAdj: 'szentendrei',
     name: 'Szentendre',
     county: 'Pest megye',
     population: '26 000',
@@ -99,6 +107,8 @@ export const CITIES = [
   },
   {
     slug: 'villanyszerelo-vac',
+    suffixOn: 'Vácon',
+    suffixAdj: 'váci',
     name: 'Vác',
     county: 'Pest megye',
     population: '34 000',

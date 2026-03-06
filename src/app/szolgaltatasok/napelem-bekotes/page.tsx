@@ -87,7 +87,7 @@ export default function NapelemPage() {
                       className="flex items-center gap-3 p-4 rounded-xl border border-gray-200 hover:border-amber-300 hover:bg-amber-50 transition-all group">
                       <span className="text-xl">☀️</span>
                       <div>
-                        <div className="font-semibold text-sm text-gray-900 group-hover:text-amber-600 transition-colors">Napelem bekötés {c.name}ban</div>
+                        <div className="font-semibold text-sm text-gray-900 group-hover:text-amber-600 transition-colors">Napelem bekötés {c.suffixOn}</div>
                         <div className="text-xs text-gray-400">{c.county}</div>
                       </div>
                     </Link>

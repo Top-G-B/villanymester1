@@ -120,17 +120,17 @@ export default function CityPage({ params }: { params: { slug: string } }) {
             {/* Main text */}
             <div className="lg:col-span-2 prose prose-gray max-w-none">
               <h2 className="text-2xl font-black text-gray-900 mb-4">
-                Villanyszerelési szolgáltatások {city.name}ban
+                Villanyszerelési szolgáltatások {city.suffixOn}
               </h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                A <strong>{SITE.name}</strong> Pest megye megbízható villanyszerelő vállalkozása, amely {city.name}ban és közvetlen környékén kínál professzionális elektromos szolgáltatásokat. Csapatunk tapasztalt, képesített szakemberekből áll, akik minden villanyszerelési feladatot elvégeznek – a kis hibaelhárítástól a teljes lakásfelújításig.
+                A <strong>{SITE.name}</strong> Pest megye megbízható villanyszerelő vállalkozása, amely {city.suffixOn} és közvetlen környékén kínál professzionális elektromos szolgáltatásokat. Csapatunk tapasztalt, képesített szakemberekből áll, akik minden villanyszerelési feladatot elvégeznek – a kis hibaelhárítástól a teljes lakásfelújításig.
               </p>
 
               <h2 className="text-2xl font-black text-gray-900 mb-4 mt-8">
-                Miért éppen minket válasszon {city.name}ban?
+                Miért éppen minket válasszon {city.suffixOn}?
               </h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                {city.name}ban rengeteg villanyszerelő hirdet, de nem mindegyik garantálja a gyors kiszállást, a megfelelő dokumentációt és a hosszú távú garanciát. Mi igen. Az alábbiakban összefoglaljuk, miért dönt mellettünk egyre több {city.name}i ügyfél:
+                {city.suffixOn} rengeteg villanyszerelő hirdet, de nem mindegyik garantálja a gyors kiszállást, a megfelelő dokumentációt és a hosszú távú garanciát. Mi igen. Az alábbiakban összefoglaljuk, miért dönt mellettünk egyre több {city.suffixAdj} ügyfél:
               </p>
               <ul className="space-y-2 mb-6">
                 {['Dokumentált, tűzvédelmi előírásoknak megfelelő munkavégzés', 'Átlátható árazás – nem éri meglepetés a munkavégzés végén', 'Minden munkatársunk rendelkezik villanyszerelői engedéllyel', `${city.name} összes városrészén kiszállunk: ${city.districts.join(', ')}`].map(i => (
@@ -139,7 +139,7 @@ export default function CityPage({ params }: { params: { slug: string } }) {
               </ul>
 
               <h2 className="text-2xl font-black text-gray-900 mb-4 mt-8">
-                Villanyszerelési munkák árai {city.name}ban 2025-ben
+                Villanyszerelési munkák árai {city.suffixOn} 2025-ben
               </h2>
               <div className="overflow-hidden rounded-xl border border-gray-200 mb-6">
                 <table className="w-full text-sm">
@@ -190,7 +190,7 @@ export default function CityPage({ params }: { params: { slug: string } }) {
               <div className="bg-amber-500 rounded-2xl p-6 text-white sticky top-24">
                 <div className="text-3xl mb-3">📞</div>
                 <h3 className="font-black text-xl mb-2">Hívjon most!</h3>
-                <p className="text-amber-100 text-sm mb-4">Ingyenes árajánlat {city.name}ban</p>
+                <p className="text-amber-100 text-sm mb-4">Ingyenes árajánlat {city.suffixOn}</p>
                 <a href={`tel:${SITE.phone}`} className="block bg-white text-amber-600 font-black py-3 px-4 rounded-xl text-center hover:bg-amber-50 transition-colors mb-3">
                   {SITE.phoneDisplay}
                 </a>
@@ -241,7 +241,7 @@ export default function CityPage({ params }: { params: { slug: string } }) {
       {/* CTA bottom */}
       <section className="bg-gray-900 text-white py-14">
         <div className="container-main text-center">
-          <h2 className="text-2xl md:text-3xl font-black mb-4">Villanyszerelőt keres {city.name}ban?</h2>
+          <h2 className="text-2xl md:text-3xl font-black mb-4">Villanyszerelőt keres {city.suffixOn}?</h2>
           <p className="text-gray-400 mb-8">Hívjon most vagy kérjen online árajánlatot – gyorsan visszajelzünk!</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={`tel:${SITE.phone}`} className="btn-primary text-base px-8 py-4">

@@ -62,7 +62,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                     className="flex items-center gap-3 p-4 rounded-xl border border-gray-200 hover:border-amber-300 hover:bg-amber-50 transition-all">
                     <span className="text-xl">🏙️</span>
                     <div>
-                      <div className="font-semibold text-gray-900 text-sm">{service.name} {c.name}ban</div>
+                      <div className="font-semibold text-gray-900 text-sm">{service.name} {c.suffixOn}</div>
                       <div className="text-xs text-gray-400">{c.county}</div>
                     </div>
                   </Link>

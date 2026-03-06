@@ -81,7 +81,7 @@ export default function HibaelharitasPage() {
                 className="flex items-center gap-3 p-4 rounded-xl border border-gray-200 hover:border-red-300 hover:bg-red-50 transition-all group">
                 <span className="text-xl">⚡</span>
                 <div>
-                  <div className="font-semibold text-sm text-gray-900 group-hover:text-red-600 transition-colors">Sürgős villanyszerelő {c.name}ban</div>
+                  <div className="font-semibold text-sm text-gray-900 group-hover:text-red-600 transition-colors">Sürgős villanyszerelő {c.suffixOn}</div>
                   <div className="text-xs text-gray-400">{c.county} · 2-4 óra kiszállás</div>
                 </div>
               </Link>
