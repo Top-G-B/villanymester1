@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { SITE, CITIES, SERVICES, REVIEWS } from '@/lib/data'
 
 export const metadata: Metadata = {
@@ -42,12 +43,12 @@ export default function HomePage() {
 
       {/* ── HERO ── */}
       <section className="text-white py-20 md:py-28 relative overflow-hidden">
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1920&q=80"
-          alt=""
-          fetchPriority="high"
-          className="absolute inset-0 w-full h-full object-cover"
-          aria-hidden="true"
+          alt="Villanyszerelő Pest megye"
+          fill
+          priority
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-black/60"/>
         <div className="container-main relative">

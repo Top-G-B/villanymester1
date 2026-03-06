@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { SITE } from '@/lib/data'
 import { BLOG_POSTS } from '@/lib/blog'
@@ -95,7 +96,9 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
             <article className="lg:col-span-2 min-w-0">
               {blogImages[post.slug] && (
-                <img src={blogImages[post.slug]} alt={post.title} className="w-full h-64 object-cover rounded-2xl mb-8" />
+                <div className="relative w-full h-64 rounded-2xl overflow-hidden mb-8">
+                  <Image src={blogImages[post.slug]} alt={post.title} fill className="object-cover" />
+                </div>
               )}
               <div
                 className="prose prose-gray prose-headings:font-black prose-h2:text-xl prose-h2:mt-8 prose-h3:text-lg prose-a:text-amber-600 prose-strong:text-gray-900 prose-ul:space-y-1 max-w-none text-gray-700 leading-relaxed"

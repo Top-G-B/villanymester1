@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { SITE, CITIES } from '@/lib/data'
 
 export const metadata: Metadata = {
@@ -81,7 +82,9 @@ export default function EVToltoPage() {
                     { kw:'22 kW', type:'Háromfázisú gyorstöltő', time:'2–3 óra / töltés', price:'180 000–250 000 Ft', best:false, desc:'Ha az autó támogatja. Nagy megtett kilométerekhez ideális.', img:'https://images.unsplash.com/photo-1647166545674-ce28ce93bdca?w=400&q=80', imgAlt:'22 kW háromfázisú töltő', recommend:'🏷️ Ajánlott: Keba KeContact P30 22kW, Wallbox Commander 2, ABB Terra AC W22 – pl. Renault Zoe, BMW i3 tulajdonosoknak.' },
                   ].map(t => (
                     <div key={t.kw} className={`rounded-2xl border-2 p-6 ${t.best ? 'border-amber-400 bg-amber-50' : 'border-gray-200 bg-white'}`}>
-                      <img src={t.img} alt={t.imgAlt} className="w-full h-36 object-cover rounded-xl mb-4" />
+                      <div className="relative w-full h-36 rounded-xl overflow-hidden mb-4">
+                        <Image src={t.img} alt={t.imgAlt} fill className="object-cover" />
+                      </div>
                       <div className="flex flex-wrap gap-3 items-start justify-between mb-3">
                         <div>
                           <div className="flex items-center gap-2 mb-1">
