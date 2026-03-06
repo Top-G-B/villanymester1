@@ -55,7 +55,7 @@ export default function Header() {
             📞 {SITE.phoneDisplay}
           </a>
 
-          <button onClick={() => setOpen(!open)} className="md:hidden p-2 rounded-lg hover:bg-gray-100">
+          <button onClick={() => setOpen(!open)} className="md:hidden p-2 rounded-lg hover:bg-gray-100" aria-label="Menü megnyitása">
             <div className={`w-5 h-0.5 bg-gray-700 transition-all ${open ? 'rotate-45 translate-y-1.5' : ''}`}/>
             <div className={`w-5 h-0.5 bg-gray-700 my-1 transition-all ${open ? 'opacity-0' : ''}`}/>
             <div className={`w-5 h-0.5 bg-gray-700 transition-all ${open ? '-rotate-45 -translate-y-1.5' : ''}`}/>
