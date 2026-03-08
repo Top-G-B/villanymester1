@@ -6,11 +6,34 @@ export const metadata: Metadata = {
   title: 'Kapcsolat – Díjmentes Árajánlat | Villanymester',
   description: 'Vegye fel velünk a kapcsolatot! Ingyenes árajánlat villanyszerelési munkákhoz Pest megyében. Hívjon vagy töltse ki az online űrlapot.',
   alternates: { canonical: `${SITE.url}/kapcsolat/` },
+  openGraph: {
+    title: 'Kapcsolat – Díjmentes Árajánlat | Villanymester',
+    description: 'Vegye fel velünk a kapcsolatot! Ingyenes árajánlat villanyszerelési munkákhoz Pest megyében.',
+    url: `${SITE.url}/kapcsolat/`,
+    type: 'website',
+    locale: 'hu_HU',
+  },
 }
 
 export default function KapcsolatPage() {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Kapcsolat | Villanymester Kft.',
+    description: 'Vegye fel velünk a kapcsolatot! Ingyenes árajánlat villanyszerelési munkákhoz Pest megyében.',
+    url: `${SITE.url}/kapcsolat/`,
+    mainEntity: {
+      '@type': 'LocalBusiness',
+      name: 'Villanymester Kft.',
+      telephone: '+36 70 293 3659',
+      email: 'info@mateklap.hu',
+    }
+  }
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+
       <div className="bg-white border-b border-gray-100">
         <div className="container-main py-3">
           <nav className="text-sm text-gray-400 flex items-center gap-2">
@@ -39,9 +62,9 @@ export default function KapcsolatPage() {
                 <h2 className="font-black text-gray-900 text-xl mb-5">Elérhetőségeink</h2>
                 <div className="space-y-4">
                   {[
-                    { icon:'📞', label:'Telefon', val: SITE.phoneDisplay, href:`tel:${SITE.phone}` },
-                    { icon:'✉️', label:'E-mail', val: SITE.email, href:`mailto:${SITE.email}` },
-                    { icon:'📍', label:'Telephely', val: 'Érd, Pest megye', href: undefined },
+                    { icon: '📞', label: 'Telefon', val: SITE.phoneDisplay, href: `tel:${SITE.phone}` },
+                    { icon: '✉️', label: 'E-mail', val: SITE.email, href: `mailto:${SITE.email}` },
+                    { icon: '📍', label: 'Telephely', val: 'Érd, Pest megye', href: undefined },
                   ].map(c => (
                     <div key={c.label} className="flex gap-4 items-start">
                       <span className="text-2xl">{c.icon}</span>
@@ -59,10 +82,10 @@ export default function KapcsolatPage() {
               <div className="card">
                 <h3 className="font-bold text-gray-900 mb-3">⏰ Nyitvatartás</h3>
                 <div className="space-y-2 text-sm">
-                  {[['Hétfő – Péntek','8:00–18:00'],['Szombat','9:00–14:00'],['Vasárnap','Zárva'],['Sürgős eset','0–24 óra']].map(([d,t]) => (
+                  {[['Hétfő – Péntek', '8:00–18:00'], ['Szombat', '9:00–14:00'], ['Vasárnap', 'Zárva'], ['Sürgős eset', '0–24 óra']].map(([d, t]) => (
                     <div key={d} className="flex justify-between py-1.5 border-b border-gray-100 last:border-0">
                       <span className="text-gray-600">{d}</span>
-                      <span className={`font-semibold ${t==='Zárva'?'text-gray-400':t.includes('0–24')?'text-green-600':'text-gray-900'}`}>{t}</span>
+                      <span className={`font-semibold ${t === 'Zárva' ? 'text-gray-400' : t.includes('0–24') ? 'text-green-600' : 'text-gray-900'}`}>{t}</span>
                     </div>
                   ))}
                 </div>
@@ -89,18 +112,18 @@ export default function KapcsolatPage() {
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1.5">Neve *</label>
                     <input type="text" name="name" required placeholder="Kovács István"
-                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent"/>
+                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1.5">Telefon *</label>
                     <input type="tel" name="phone" required placeholder="+36 20 123 4567"
-                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent"/>
+                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent" />
                   </div>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">E-mail</label>
                   <input type="email" name="email" placeholder="kovacs@email.hu"
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent"/>
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">Város *</label>
@@ -115,13 +138,13 @@ export default function KapcsolatPage() {
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">Munka típusa</label>
                   <select name="type" className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 bg-white">
                     <option value="">Válasszon...</option>
-                    {['Hibaelhárítás','Lakásfelújítás','EV töltő telepítés','Napelem bekötés','Ipari villanyszerelés','Okosotthon','Egyéb'].map(t => <option key={t} value={t}>{t}</option>)}
+                    {['Hibaelhárítás', 'Lakásfelújítás', 'EV töltő telepítés', 'Napelem bekötés', 'Ipari villanyszerelés', 'Okosotthon', 'Egyéb'].map(t => <option key={t} value={t}>{t}</option>)}
                   </select>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">Rövid leírás</label>
                   <textarea name="message" rows={4} placeholder="Írja le röviden, milyen munkára van szüksége..."
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent resize-none"/>
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent resize-none" />
                 </div>
                 <button type="submit" className="btn-primary w-full justify-center py-4 text-base">
                   📋 Árajánlat kérése →
@@ -131,6 +154,20 @@ export default function KapcsolatPage() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Map */}
+      <section className="h-96 w-full relative bg-gray-100">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108000!2d18.8!3d47.38!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741ddb3e41b953d%3A0x400c4290c1e11a0!2zQnVkYXBlc3QsIMODcmQsIEh1bmdhcnk!5e0!3m2!1sen!2sus!4v1714150334800!5m2!1sen!2sus"
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen={false}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Villanymester Kft. Érd - Google Térkép"
+        ></iframe>
       </section>
     </>
   )

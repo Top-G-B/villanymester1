@@ -6,6 +6,13 @@ export const metadata: Metadata = {
   title: 'Referenciák – Elvégzett Munkáink Pest Megyében | Villanymester',
   description: 'Villanyszerelési referenciáink Pest megyében ✓ 200+ elvégzett munka ✓ Lakásfelújítás, EV töltő, napelem, okosotthon, ipari villanyszerelés ✓ 4.9 ★ értékelés',
   alternates: { canonical: `${SITE.url}/referenciak/` },
+  openGraph: {
+    title: 'Referenciák – Elvégzett Munkáink Pest Megyében | Villanymester',
+    description: 'Villanyszerelési referenciáink Pest megyében ✓ 200+ elvégzett munka ✓ Lakásfelújítás, EV töltő, napelem, okosotthon, ipari villanyszerelés.',
+    url: `${SITE.url}/referenciak/`,
+    type: 'website',
+    locale: 'hu_HU',
+  },
 }
 
 const schema = {
@@ -118,7 +125,7 @@ const stats = [
 export default function Referenciak() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
       {/* Breadcrumb */}
       <div className="bg-white border-b border-gray-100">
@@ -136,7 +143,7 @@ export default function Referenciak() {
         <div className="container-main max-w-4xl">
           <div className="badge mb-5">🏆 Elvégzett munkáink</div>
           <h1 className="text-3xl md:text-5xl font-black leading-tight mb-5">
-            Elvégzett Munkáink<br/>
+            Elvégzett Munkáink<br />
             <span className="text-amber-400">Pest Megyében</span>
           </h1>
           <p className="text-gray-300 text-lg mb-8 max-w-2xl">

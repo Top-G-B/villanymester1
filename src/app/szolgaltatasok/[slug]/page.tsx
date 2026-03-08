@@ -7,22 +7,58 @@ export function generateStaticParams() {
   return SERVICES.map(s => ({ slug: s.slug }))
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+type Props = {
+  params: { slug: string }
+}
+
+export function generateMetadata({ params }: Props): Metadata {
   const service = SERVICES.find(s => s.slug === params.slug)
   if (!service) return {}
+
+  const description = `Keresi a ${service.name.toLowerCase()} szakértőjét? A Villanymester Kft. megbízható ${service.name.toLowerCase()} szolgáltatást nyújt Pest megye területén: Érd, Gödöllő, Dunakeszi, Szentendre és Vác.`
   return {
-    title: `${service.name} Pest Megye – Profi Villanyszerelő | Villanymester`,
-    description: `${service.desc} Pest megye 5 városában. Gyors kiszállás, garanciális munka, díjmentes árajánlat.`,
-    alternates: { canonical: `${SITE.url}/szolgaltatasok/${params.slug}/` },
+    title: `${service.name} Pest megye | Villanymester Kft.`,
+    description,
+    alternates: { canonical: `https://www.mateklap.hu/szolgaltatasok/${params.slug}` },
+    openGraph: {
+      title: `${service.name} Pest megye | Villanymester Kft.`,
+      description,
+      url: `https://www.mateklap.hu/szolgaltatasok/${params.slug}`,
+      type: 'website',
+      locale: 'hu_HU',
+    },
   }
 }
 
-export default function ServicePage({ params }: { params: { slug: string } }) {
+export default function ServicePage({ params }: Props) {
   const service = SERVICES.find(s => s.slug === params.slug)
   if (!service) notFound()
 
+  const serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: service.name,
+    provider: {
+      '@type': 'ElectricalContractor',
+      name: 'Villanymester Kft.',
+      telephone: '+36 70 293 3659',
+      image: `${SITE.url}/logo.png`,
+      priceRange: '$$',
+    },
+    areaServed: [
+      { '@type': 'City', name: 'Érd' },
+      { '@type': 'City', name: 'Gödöllő' },
+      { '@type': 'City', name: 'Dunakeszi' },
+      { '@type': 'City', name: 'Szentendre' },
+      { '@type': 'City', name: 'Vác' },
+      { '@type': 'AdministrativeArea', name: 'Pest megye' }
+    ],
+    description: service.desc,
+  }
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <div className="bg-white border-b border-gray-100">
         <div className="container-main py-3">
           <nav className="text-sm text-gray-400 flex items-center gap-2">

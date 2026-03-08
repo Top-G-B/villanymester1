@@ -12,16 +12,18 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const post = BLOG_POSTS.find(p => p.slug === params.slug)
   if (!post) return {}
+  const description = post.metaDescription.length > 160 ? post.metaDescription.substring(0, 157) + '...' : post.metaDescription
   return {
-    title: post.metaTitle,
-    description: post.metaDescription,
-    alternates: { canonical: `${SITE.url}/blog/${post.slug}/` },
+    title: `${post.title} | Villanymester Blog`,
+    description: description,
+    alternates: { canonical: `https://www.mateklap.hu/blog/${post.slug}` },
     keywords: post.keywords,
     openGraph: {
-      title: post.metaTitle,
-      description: post.metaDescription,
+      title: `${post.title} | Villanymester Blog`,
+      description: description,
       type: 'article',
       publishedTime: post.date,
+      modifiedTime: post.date,
       locale: 'hu_HU',
     }
   }
@@ -47,10 +49,13 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     headline: post.title,
     description: post.metaDescription,
     datePublished: post.date,
+    dateModified: post.date,
     inLanguage: 'hu-HU',
-    author: { '@type': 'Organization', name: SITE.name, url: SITE.url },
-    publisher: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+    author: { '@type': 'Organization', name: 'Villanymester Kft.', url: SITE.url },
+    publisher: { '@type': 'Organization', name: 'Villanymester Kft.', url: SITE.url, logo: { '@type': 'ImageObject', url: `${SITE.url}/logo.png` } },
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE.url}/blog/${post.slug}/` },
+    image: blogImages[post.slug] || `${SITE.url}/logo.png`,
+    wordCount: post.content.split(/\s+/).length,
   }
 
   const breadcrumbSchema = {
@@ -65,8 +70,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}/>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <div className="bg-white border-b border-gray-100">
         <div className="container-main py-3">

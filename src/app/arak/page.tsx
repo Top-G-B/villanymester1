@@ -3,40 +3,64 @@ import Link from 'next/link'
 import { SITE, CITIES } from '@/lib/data'
 
 export const metadata: Metadata = {
-  title: 'Villanyszerelés Árak 2025 – Díjak és Kalkulátor | Villanymester',
-  description: 'Villanyszerelés árak 2025-ben Pest megyében ✓ Hibaelhárítás, lakásfelújítás, EV töltő telepítés árai ✓ Ingyenes helyszíni árajánlat ➤ Hívjon most!',
+  title: 'Villanyszerelés Árak 2025 | Villanymester Kft. Pest megye',
+  description: 'Átlátható villanyszerelés árak Pest megyében. Hibaelhárítás 20.000 Ft-tól, új kiállás 10.000 Ft/db. Kérjen ingyenes ajánlatot még ma!',
   alternates: { canonical: `${SITE.url}/arak/` },
+  openGraph: {
+    title: 'Árak – Villanyszerelés Árak 2025 | Villanymester',
+    description: 'Átlátható villanyszerelés árak Pest megyében. Hibaelhárítás 15.000 Ft-tól, lakásfelújítás 800 Ft/m²-től.',
+    url: `${SITE.url}/arak/`,
+    type: 'website',
+    locale: 'hu_HU',
+  },
 }
 
 const priceTable = [
-  { category: '🔧 Hibaelhárítás', items: [
-    { name: 'Diagnózis, hibafelderítés', price: '15 000 Ft', note: 'Munkadíjba beleszámít' },
-    { name: 'Kismegszakító csere', price: '8 000–15 000 Ft', note: 'Anyag nélkül' },
-    { name: 'Aljzat / kapcsoló csere', price: '5 000–8 000 Ft/db', note: 'Anyag nélkül' },
-    { name: 'Biztosítéktábla ellenőrzés', price: '12 000 Ft', note: '' },
-  ]},
-  { category: '🏠 Lakás villanyszerelés', items: [
-    { name: 'Teljes lakás felújítás', price: '800–1 200 Ft/m²', note: 'Anyag nélkül' },
-    { name: 'Részleges felújítás (1 szoba)', price: '40 000–80 000 Ft', note: 'Anyagtól függően' },
-    { name: 'Biztosítéktábla csere', price: '35 000–60 000 Ft', note: 'Anyag nélkül' },
-    { name: 'Új elektromos tűzhely bekötés', price: '12 000 Ft', note: '' },
-  ]},
-  { category: '🔌 EV Töltő telepítés', items: [
-    { name: '3,7 kW fali töltő (Mode 2)', price: '80 000–120 000 Ft', note: 'Töltővel együtt' },
-    { name: '11 kW fali töltő (Mode 3)', price: '120 000–180 000 Ft', note: 'Töltővel együtt' },
-    { name: '22 kW fali töltő', price: '180 000–250 000 Ft', note: 'Töltővel együtt' },
-    { name: 'Társasházi töltő egyedi', price: 'Árajánlat alapján', note: '' },
-  ]},
-  { category: '☀️ Napelem bekötés', items: [
-    { name: 'Napelem rendszer bekötés', price: 'Árajánlat alapján', note: 'Rendszer méretétől függ' },
-    { name: 'Hálózati csatlakozási munkák', price: 'Árajánlat alapján', note: '' },
-    { name: 'Akkumulátor rendszer bekötés', price: 'Árajánlat alapján', note: '' },
-  ]},
+  {
+    category: '🔧 Hibaelhárítás', items: [
+      { name: 'Diagnózis, hibafelderítés', price: '15 000 Ft', note: 'Munkadíjba beleszámít' },
+      { name: 'Kismegszakító csere', price: '8 000–15 000 Ft', note: 'Anyag nélkül' },
+      { name: 'Aljzat / kapcsoló csere', price: '5 000–8 000 Ft/db', note: 'Anyag nélkül' },
+      { name: 'Biztosítéktábla ellenőrzés', price: '12 000 Ft', note: '' },
+    ]
+  },
+  {
+    category: '🏠 Lakás villanyszerelés', items: [
+      { name: 'Teljes lakás felújítás', price: '800–1 200 Ft/m²', note: 'Anyag nélkül' },
+      { name: 'Részleges felújítás (1 szoba)', price: '40 000–80 000 Ft', note: 'Anyagtól függően' },
+      { name: 'Biztosítéktábla csere', price: '35 000–60 000 Ft', note: 'Anyag nélkül' },
+      { name: 'Új elektromos tűzhely bekötés', price: '12 000 Ft', note: '' },
+    ]
+  },
+  {
+    category: '🔌 EV Töltő telepítés', items: [
+      { name: '3,7 kW fali töltő (Mode 2)', price: '80 000–120 000 Ft', note: 'Töltővel együtt' },
+      { name: '11 kW fali töltő (Mode 3)', price: '120 000–180 000 Ft', note: 'Töltővel együtt' },
+      { name: '22 kW fali töltő', price: '180 000–250 000 Ft', note: 'Töltővel együtt' },
+      { name: 'Társasházi töltő egyedi', price: 'Árajánlat alapján', note: '' },
+    ]
+  },
+  {
+    category: '☀️ Napelem bekötés', items: [
+      { name: 'Napelem rendszer bekötés', price: 'Árajánlat alapján', note: 'Rendszer méretétől függ' },
+      { name: 'Hálózati csatlakozási munkák', price: 'Árajánlat alapján', note: '' },
+      { name: 'Akkumulátor rendszer bekötés', price: 'Árajánlat alapján', note: '' },
+    ]
+  },
 ]
 
 export default function ArakPage() {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Villanyszerelés Árak 2025 | Villanymester Kft.',
+    description: 'Átlátható villanyszerelés árak Pest megyében. Hibaelhárítás 20.000 Ft-tól, új kiállás 10.000 Ft/db.',
+    url: `${SITE.url}/arak/`,
+  }
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="bg-white border-b border-gray-100">
         <div className="container-main py-3">
           <nav className="text-sm text-gray-400 flex items-center gap-2">
@@ -50,8 +74,12 @@ export default function ArakPage() {
       <section className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16">
         <div className="container-main max-w-3xl text-center">
           <div className="badge mb-4">💶 Áraink</div>
-          <h1 className="text-3xl md:text-4xl font-black mb-4">Villanyszerelés árak 2025-ben</h1>
-          <p className="text-gray-300 text-lg">Átlátható, rejtett költségek nélküli árazás Pest megyében.</p>
+          <h1 className="text-3xl md:text-5xl font-black mb-6">Villanyszerelés Árak 2025</h1>
+          <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-8">Átlátható villanyszerelés árak Pest megyében. Hibaelhárítás 20.000 Ft-tól, új kiállás 10.000 Ft/db.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href={`tel:${SITE.phone}`} className="btn-primary px-8 py-3 text-lg">📞 {SITE.phoneDisplay}</a>
+            <Link href="/kapcsolat/" className="btn-outline px-8 py-3 text-lg border-white text-white hover:bg-white/10">📋 Ingyenes ajánlatkérés</Link>
+          </div>
         </div>
       </section>
 
@@ -112,7 +140,7 @@ export default function ArakPage() {
               {CITIES.map(c => (
                 <Link key={c.slug} href={`/${c.slug}/`}
                   className="card text-center hover:border-amber-300 hover:bg-amber-50 transition-all text-sm font-medium text-gray-700 hover:text-amber-700 py-3">
-                  Villanyszerelő<br/><span className="font-bold">{c.name}</span>
+                  Villanyszerelő<br /><span className="font-bold">{c.name}</span>
                 </Link>
               ))}
             </div>
@@ -122,3 +150,4 @@ export default function ArakPage() {
     </>
   )
 }
+

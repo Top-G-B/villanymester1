@@ -10,14 +10,17 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const city = CITIES.find(c => c.slug === params.slug)
   if (!city) return {}
+  const description = `Keres egy profi villanyszerelő szakembert ${city.suffixOn}? A Villanymester Kft. megbízható megoldást nyújt ${city.name} és környékén. Legyen szó hibaelhárításról vagy töltő telepítésről, számíthat ránk ${city.name} egész területén. Hívjon most: +36 70 293 3659`
+  const title = `Villanyszerelő ${city.name} | Villanymester Kft. – +36 70 293 3659`
+  const canonicalUrl = `https://www.mateklap.hu/${city.slug}`
   return {
-    title: city.metaTitle,
-    description: city.metaDescription,
-    alternates: { canonical: `${SITE.url}/${city.slug}/` },
+    title,
+    description,
+    alternates: { canonical: canonicalUrl },
     openGraph: {
-      title: city.metaTitle,
-      description: city.metaDescription,
-      url: `${SITE.url}/${city.slug}/`,
+      title,
+      description,
+      url: canonicalUrl,
       type: 'website',
       locale: 'hu_HU',
     },
@@ -30,22 +33,35 @@ export default function CityPage({ params }: { params: { slug: string } }) {
 
   const otherCities = CITIES.filter(c => c.slug !== city.slug)
 
+  const geoCoords: Record<string, { lat: number; lon: number }> = {
+    'érd': { lat: 47.3917, lon: 18.9258 },
+    'gödöllő': { lat: 47.5958, lon: 19.3617 },
+    'dunakeszi': { lat: 47.6275, lon: 19.1356 },
+    'szentendre': { lat: 47.6828, lon: 19.0742 },
+    'vác': { lat: 47.7797, lon: 19.1308 },
+  }
+  const geo = geoCoords[city.name.toLowerCase()] || geoCoords['érd']
+
   const localBusinessSchema = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: `${SITE.name} – Villanyszerelő ${city.name}`,
+    '@type': 'ElectricalContractor',
+    name: `Villanymester Kft. – Villanyszerelő ${city.name}`,
     '@id': `${SITE.url}/${city.slug}/`,
     url: `${SITE.url}/${city.slug}/`,
-    telephone: SITE.phone,
-    email: SITE.email,
+    telephone: '+36 70 293 3659',
+    email: 'info@mateklap.hu',
     description: city.metaDescription,
-    areaServed: { '@type': 'City', name: city.name, containedInPlace: { '@type': 'AdministrativeArea', name: 'Pest megye' }},
     address: { '@type': 'PostalAddress', addressLocality: city.name, addressRegion: 'Pest megye', addressCountry: 'HU' },
+    areaServed: {
+      '@type': 'City',
+      name: city.name,
+      containedInPlace: { '@type': 'AdministrativeArea', name: 'Pest megye' },
+      geo: { '@type': 'GeoCoordinates', latitude: geo.lat, longitude: geo.lon },
+    },
     openingHoursSpecification: [
-      { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '18:00' },
-      { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Saturday'], opens: '09:00', closes: '14:00' },
+      { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:00', closes: '18:00' },
     ],
-    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '47', bestRating: '5' },
+    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '128' },
     priceRange: '$$',
   }
 
@@ -70,9 +86,9 @@ export default function CityPage({ params }: { params: { slug: string } }) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}/>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}/>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Breadcrumb */}
       <div className="bg-white border-b border-gray-100">
@@ -97,7 +113,7 @@ export default function CityPage({ params }: { params: { slug: string } }) {
               {city.localFact} Profi villanyszerelési csapatunk gyorsan és megbízhatóan oldja meg az elektromos problémákat.
             </p>
             <div className="flex flex-wrap gap-3 mb-8">
-              {['⚡ Sürgős kiszállás 2-4h','🛡️ Garanciális munka','💶 Ingyenes árajánlat','📋 Teljes dokumentáció'].map(f => (
+              {['⚡ Sürgős kiszállás 2-4h', '🛡️ Garanciális munka', '💶 Ingyenes árajánlat', '📋 Teljes dokumentáció'].map(f => (
                 <span key={f} className="bg-white/10 text-white text-sm px-3 py-1.5 rounded-full">{f}</span>
               ))}
             </div>
@@ -151,13 +167,13 @@ export default function CityPage({ params }: { params: { slug: string } }) {
                   </thead>
                   <tbody className="divide-y divide-gray-100">
                     {[
-                      ['Hibaelhárítás, diagnózis','15 000 Ft'],
-                      ['Kismegszakító csere','8 000 Ft'],
-                      ['Aljzat, kapcsoló csere','5 000 Ft/db'],
-                      ['Lakás villanyszerelés (felújítás)','800–1 200 Ft/m²'],
-                      ['EV töltő telepítés (11 kW)','120 000 Ft'],
-                      ['Napelem rendszer bekötése','egyedi árajánlat'],
-                    ].map(([m,a]) => (
+                      ['Hibaelhárítás, diagnózis', '15 000 Ft'],
+                      ['Kismegszakító csere', '8 000 Ft'],
+                      ['Aljzat, kapcsoló csere', '5 000 Ft/db'],
+                      ['Lakás villanyszerelés (felújítás)', '800–1 200 Ft/m²'],
+                      ['EV töltő telepítés (11 kW)', '120 000 Ft'],
+                      ['Napelem rendszer bekötése', 'egyedi árajánlat'],
+                    ].map(([m, a]) => (
                       <tr key={m} className="hover:bg-gray-50">
                         <td className="p-3 text-gray-700">{m}</td>
                         <td className="p-3 text-right font-semibold text-amber-600">{a}</td>

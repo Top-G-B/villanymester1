@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(curl:*)",
+      "Bash(npx antigravity-awesome-skills:*)",
+      "Bash(rm:*)",
+      "Bash(do:*)",
+      "Bash(npx:*)"
+    ]
+  }
+}

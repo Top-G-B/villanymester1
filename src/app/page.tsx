@@ -4,19 +4,33 @@ import Image from 'next/image'
 import { SITE, CITIES, SERVICES, REVIEWS } from '@/lib/data'
 
 export const metadata: Metadata = {
-  title: 'Villanyszerelő Pest Megye – Megbízható, Gyors Kiszállás | Villanymester',
-  description: 'Profi villanyszerelő Pest megye 5 városában ✓ Érd, Gödöllő, Dunakeszi, Szentendre, Vác ✓ Gyors kiszállás ✓ Garanciális munka ✓ Díjmentes árajánlat ➤ Hívjon most!',
-  alternates: { canonical: SITE.url },
+  title: 'Villanyszerelő Pest megye | Villanymester Kft. – Érd, Gödöllő, Dunakeszi',
+  description: 'Profi villanyszerelő Pest megye 5 városában (Érd, Gödöllő, Dunakeszi stb.). Gyors kiszállás, garanciális munka. Hívjon most: +36 70 293 3659',
+  keywords: ['villanyszerelő pest megye', 'villanyszerelő érd', 'villanyszerelő gödöllő', 'villanyszerelő dunakeszi', 'villanyszerelő szentendre', 'villanyszerelő vác', 'EV töltő telepítés pest megye', 'napelem villanyszerelő'],
+  alternates: { canonical: 'https://www.mateklap.hu' },
+  openGraph: {
+    title: 'Villanyszerelő Pest megye | Villanymester Kft. – Érd, Gödöllő, Dunakeszi',
+    description: 'Profi villanyszerelő Pest megye 5 városában (Érd, Gödöllő, Dunakeszi stb.). Gyors kiszállás, garanciális munka. Hívjon most: +36 70 293 3659',
+    url: 'https://www.mateklap.hu',
+    type: 'website',
+    locale: 'hu_HU',
+    images: [{ url: 'https://www.mateklap.hu/og-image.jpg', width: 1200, height: 630, alt: 'Villanyszerelő Pest megye' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Villanyszerelő Pest megye | Villanymester Kft. – Érd, Gödöllő, Dunakeszi',
+    description: 'Profi villanyszerelő Pest megye 5 városában. Hívjon most: +36 70 293 3659',
+  }
 }
 
 const schemaFaq = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: 'Melyik városokba szállnak ki Pest megyében?', acceptedAnswer: { '@type': 'Answer', text: 'Pest megye 5 városába szállunk ki: Érd, Gödöllő, Dunakeszi, Szentendre és Vác területén vállalunk villanyszerelési munkákat.' }},
-    { '@type': 'Question', name: 'Milyen gyorsan tud kiszállni egy villanyszerelő?', acceptedAnswer: { '@type': 'Answer', text: 'Sürgős esetben 2-4 óra, normál esetben 24 órán belül tudunk időpontot egyeztetni.' }},
-    { '@type': 'Question', name: 'Mennyibe kerül a villanyszerelés Pest megyében?', acceptedAnswer: { '@type': 'Answer', text: 'Hibaelhárítás 15 000 Ft-tól, lakás villanyszerelés 800-1 200 Ft/m²-től. Pontos árajánlatot ingyenesen adunk.' }},
-    { '@type': 'Question', name: 'Vállalnak elektromos autó töltő telepítést?', acceptedAnswer: { '@type': 'Answer', text: 'Igen, otthoni és társasházi EV töltők beszerelése az egyik fő szakterületünk.' }},
+    { '@type': 'Question', name: 'Melyik városokba szállnak ki Pest megyében?', acceptedAnswer: { '@type': 'Answer', text: 'Pest megye 5 városába szállunk ki: Érd, Gödöllő, Dunakeszi, Szentendre és Vác területén vállalunk villanyszerelési munkákat.' } },
+    { '@type': 'Question', name: 'Milyen gyorsan tud kiszállni egy villanyszerelő?', acceptedAnswer: { '@type': 'Answer', text: 'Sürgős esetben 2-4 óra, normál esetben 24 órán belül tudunk időpontot egyeztetni.' } },
+    { '@type': 'Question', name: 'Mennyibe kerül a villanyszerelés Pest megyében?', acceptedAnswer: { '@type': 'Answer', text: 'Hibaelhárítás 15 000 Ft-tól, lakás villanyszerelés 800-1 200 Ft/m²-től. Pontos árajánlatot ingyenesen adunk.' } },
+    { '@type': 'Question', name: 'Vállalnak elektromos autó töltő telepítést?', acceptedAnswer: { '@type': 'Answer', text: 'Igen, otthoni és társasházi EV töltők beszerelése az egyik fő szakterületünk.' } },
   ]
 }
 
@@ -39,7 +53,7 @@ const whyUs = [
 export default function HomePage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaFaq) }}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaFaq) }} />
 
       {/* ── HERO ── */}
       <section className="text-white py-20 md:py-28 relative overflow-hidden">
@@ -51,13 +65,13 @@ export default function HomePage() {
           className="object-cover"
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-black/60"/>
+        <div className="absolute inset-0 bg-black/60" />
         <div className="container-main relative">
           <div className="max-w-3xl">
             <div className="badge mb-6 text-sm">⚡ Pest megye megbízható villanyszerelője</div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6">
-              Villanyszerelő<br/>
-              <span className="text-amber-400">Pest Megye</span><br/>
+              Villanyszerelő<br />
+              <span className="text-amber-400">Pest Megye</span><br />
               5 városában
             </h1>
             <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl">

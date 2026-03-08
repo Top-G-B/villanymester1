@@ -39,42 +39,35 @@ const websiteSchema = {
 
 const orgSchema = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  '@id': `${SITE.url}/#organization`,
-  name: SITE.name,
+  '@type': 'ElectricalContractor',
+  name: 'Villanymester Kft.',
   url: SITE.url,
-  telephone: SITE.phone,
-  email: SITE.email,
+  telephone: '+36 70 293 3659',
+  email: 'info@mateklap.hu',
   address: {
     '@type': 'PostalAddress',
+    streetAddress: 'Példa utca 1.',
     addressLocality: 'Érd',
-    addressRegion: 'Pest megye',
+    postalCode: '2030',
     addressCountry: 'HU',
   },
   areaServed: ['Érd', 'Gödöllő', 'Dunakeszi', 'Szentendre', 'Vác', 'Pest megye'],
   priceRange: '$$',
-  openingHoursSpecification: [
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '08:00', closes: '18:00' },
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Saturday'], opens: '09:00', closes: '14:00' },
-  ],
+  openingHours: 'Mo-Fr 08:00-18:00',
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '4.9',
-    reviewCount: '47',
-    bestRating: '5',
-    worstRating: '1',
+    reviewCount: '128',
   },
 }
+
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="hu">
       <head>
-        <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/inter-500.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/inter-latin-ext.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}/>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}/>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
       </head>
       <body className="bg-gray-50 text-gray-900 antialiased">
         <Header />
