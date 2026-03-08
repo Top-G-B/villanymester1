@@ -54,12 +54,10 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-black/60"/>
         <div className="container-main relative">
           <div className="max-w-3xl">
-            <div className="mb-6">
-              <span style={{fontSize:'12px',fontWeight:'600',letterSpacing:'3px',textTransform:'uppercase',color:'#FFD338'}}>⚡ Pest megye megbízható villanyszerelője</span>
-            </div>
+            <div className="badge mb-6 text-sm">⚡ Pest megye megbízható villanyszerelője</div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6">
               Villanyszerelő<br/>
-              <span style={{backgroundColor:'#FFD338',color:'#000',padding:'0 8px'}}>Pest Megye</span><br/>
+              <span className="text-amber-400">Pest Megye</span><br/>
               5 városában
             </h1>
             <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl">
@@ -86,26 +84,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── PHOTO STRIP ── */}
-      <div className="grid grid-cols-2 md:grid-cols-4 h-48 md:h-64">
-        {[
-          ['https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80','Villanyszerelő munkában'],
-          ['https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80','Elektromos panel'],
-          ['https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80','EV töltő telepítés'],
-          ['https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80','Napelem rendszer'],
-        ].map(([src, alt]) => (
-          <div key={src} className="relative overflow-hidden">
-            <Image src={src} alt={alt} fill className="object-cover" aria-hidden="true"/>
-            <div className="absolute inset-0 bg-black/20"/>
-          </div>
-        ))}
-      </div>
-
       {/* ── CITIES GRID ── */}
       <section className="section bg-white">
         <div className="container-main">
           <div className="text-center mb-12">
-            <div className="mb-3"><span style={{fontSize:'12px',fontWeight:'600',letterSpacing:'3px',textTransform:'uppercase',color:'#FFD338'}}>Területünk</span></div>
+            <div className="badge mb-3">📍 Területünk</div>
             <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
               Villanyszerelő Pest Megye – 5 városban
             </h2>
@@ -156,7 +139,7 @@ export default function HomePage() {
       <section className="section bg-gray-50">
         <div className="container-main">
           <div className="text-center mb-12">
-            <div className="mb-3"><span style={{fontSize:'12px',fontWeight:'600',letterSpacing:'3px',textTransform:'uppercase',color:'#FFD338'}}>Szolgáltatások</span></div>
+            <div className="badge mb-3">🔧 Szolgáltatások</div>
             <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Villanyszerelési munkáink</h2>
             <p className="text-gray-500 max-w-xl mx-auto">Minden elektromos munkát vállalunk – hibaelhárítástól az okosotthon kiépítéséig.</p>
           </div>
@@ -177,7 +160,7 @@ export default function HomePage() {
       <section className="section bg-white">
         <div className="container-main">
           <div className="text-center mb-12">
-            <div className="mb-3"><span style={{fontSize:'12px',fontWeight:'600',letterSpacing:'3px',textTransform:'uppercase',color:'#FFD338'}}>Miért mi?</span></div>
+            <div className="badge mb-3">🏆 Miért mi?</div>
             <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Miért válassza a Villanymestert?</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -198,7 +181,7 @@ export default function HomePage() {
       <section className="section bg-gray-50">
         <div className="container-main">
           <div className="text-center mb-12">
-            <div className="mb-3"><span style={{fontSize:'12px',fontWeight:'600',letterSpacing:'3px',textTransform:'uppercase',color:'#FFD338'}}>Vélemények</span></div>
+            <div className="badge mb-3">⭐ Vélemények</div>
             <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Mit mondanak ügyfeleink?</h2>
             <div className="text-5xl font-black text-amber-500 mb-1">4.9 / 5</div>
             <div className="text-gray-400 text-sm">120+ értékelés alapján</div>
@@ -228,7 +211,7 @@ export default function HomePage() {
       <section className="section bg-white">
         <div className="container-main max-w-3xl">
           <div className="text-center mb-12">
-            <div className="mb-3"><span style={{fontSize:'12px',fontWeight:'600',letterSpacing:'3px',textTransform:'uppercase',color:'#FFD338'}}>Gyakori kérdések</span></div>
+            <div className="badge mb-3">❓ GYIK</div>
             <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Gyakori kérdések</h2>
           </div>
           <div className="space-y-4">
