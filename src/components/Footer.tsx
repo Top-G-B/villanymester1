@@ -3,7 +3,7 @@ import { SITE, CITIES, SERVICES } from '@/lib/data'
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="text-gray-300" style={{backgroundColor:'#0a0a0a',backgroundImage:'radial-gradient(circle, #ffffff08 1px, transparent 1px)',backgroundSize:'30px 30px'}}>
       <div className="container-main py-14">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Brand */}
