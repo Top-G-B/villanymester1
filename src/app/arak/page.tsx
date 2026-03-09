@@ -1,153 +1,92 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
-import { SITE, CITIES } from '@/lib/data'
+import { SITE } from '@/lib/data'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
-export const metadata: Metadata = {
-  title: 'Villanyszerelés Árak 2025 | Villanymester Kft. Pest megye',
-  description: 'Átlátható villanyszerelés árak Pest megyében. Hibaelhárítás 20.000 Ft-tól, új kiállás 10.000 Ft/db. Kérjen ingyenes ajánlatot még ma!',
-  alternates: { canonical: `${SITE.url}/arak/` },
-  openGraph: {
-    title: 'Árak – Villanyszerelés Árak 2025 | Villanymester',
-    description: 'Átlátható villanyszerelés árak Pest megyében. Hibaelhárítás 15.000 Ft-tól, lakásfelújítás 800 Ft/m²-től.',
-    url: `${SITE.url}/arak/`,
-    type: 'website',
-    locale: 'hu_HU',
-  },
+export const metadata = {
+  title: 'Villanyszerelő Árak 2025 – Átlátható Díjszabás | Villanymester Kft.',
+  description: 'Villanyszerelő árak 2025 ✓ Kiszállási díj, óradíj, munkadíj táblázat ✓ Pest megye ✓ Díjmentes árajánlat ➤ Hívjon most: +36 70 293 3659',
 }
 
-const priceTable = [
-  {
-    category: '🔧 Hibaelhárítás', items: [
-      { name: 'Diagnózis, hibafelderítés', price: '15 000 Ft', note: 'Munkadíjba beleszámít' },
-      { name: 'Kismegszakító csere', price: '8 000–15 000 Ft', note: 'Anyag nélkül' },
-      { name: 'Aljzat / kapcsoló csere', price: '5 000–8 000 Ft/db', note: 'Anyag nélkül' },
-      { name: 'Biztosítéktábla ellenőrzés', price: '12 000 Ft', note: '' },
-    ]
-  },
-  {
-    category: '🏠 Lakás villanyszerelés', items: [
-      { name: 'Teljes lakás felújítás', price: '800–1 200 Ft/m²', note: 'Anyag nélkül' },
-      { name: 'Részleges felújítás (1 szoba)', price: '40 000–80 000 Ft', note: 'Anyagtól függően' },
-      { name: 'Biztosítéktábla csere', price: '35 000–60 000 Ft', note: 'Anyag nélkül' },
-      { name: 'Új elektromos tűzhely bekötés', price: '12 000 Ft', note: '' },
-    ]
-  },
-  {
-    category: '🔌 EV Töltő telepítés', items: [
-      { name: '3,7 kW fali töltő (Mode 2)', price: '80 000–120 000 Ft', note: 'Töltővel együtt' },
-      { name: '11 kW fali töltő (Mode 3)', price: '120 000–180 000 Ft', note: 'Töltővel együtt' },
-      { name: '22 kW fali töltő', price: '180 000–250 000 Ft', note: 'Töltővel együtt' },
-      { name: 'Társasházi töltő egyedi', price: 'Árajánlat alapján', note: '' },
-    ]
-  },
-  {
-    category: '☀️ Napelem bekötés', items: [
-      { name: 'Napelem rendszer bekötés', price: 'Árajánlat alapján', note: 'Rendszer méretétől függ' },
-      { name: 'Hálózati csatlakozási munkák', price: 'Árajánlat alapján', note: '' },
-      { name: 'Akkumulátor rendszer bekötés', price: 'Árajánlat alapján', note: '' },
-    ]
-  },
-]
-
 export default function ArakPage() {
-  const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    name: 'Villanyszerelés Árak 2025 | Villanymester Kft.',
-    description: 'Átlátható villanyszerelés árak Pest megyében. Hibaelhárítás 20.000 Ft-tól, új kiállás 10.000 Ft/db.',
-    url: `${SITE.url}/arak/`,
-  }
-
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <div className="bg-white border-b border-gray-100">
-        <div className="container-main py-3">
-          <nav className="text-sm text-gray-400 flex items-center gap-2">
-            <Link href="/" className="hover:text-amber-600">Főoldal</Link>
-            <span>›</span>
-            <span className="text-gray-700 font-medium">Villanyszerelés árak</span>
-          </nav>
-        </div>
-      </div>
-
-      <section className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16">
-        <div className="container-main max-w-3xl text-center">
-          <div className="badge mb-4">💶 Áraink</div>
-          <h1 className="text-3xl md:text-5xl font-black mb-6">Villanyszerelés Árak 2025</h1>
-          <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-8">Átlátható villanyszerelés árak Pest megyében. Hibaelhárítás 20.000 Ft-tól, új kiállás 10.000 Ft/db.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href={`tel:${SITE.phone}`} className="btn-primary px-8 py-3 text-lg">📞 {SITE.phoneDisplay}</a>
-            <Link href="/kapcsolat/" className="btn-outline px-8 py-3 text-lg border-white text-white hover:bg-white/10">📋 Ingyenes ajánlatkérés</Link>
+      <Header />
+      <main className="min-h-screen bg-white">
+        <section className="bg-amber-500 text-white py-16">
+          <div className="max-w-4xl mx-auto px-4 text-center">
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">Villanyszerelő Árak 2025</h1>
+            <p className="text-xl">Átlátható Díjszabás – Semmilyen Rejtett Költség</p>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="section bg-white">
-        <div className="container-main max-w-4xl">
-          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 mb-10 flex gap-4">
-            <span className="text-2xl shrink-0">ℹ️</span>
-            <div>
-              <div className="font-bold text-amber-800 mb-1">Fontos tudnivaló az árakról</div>
-              <p className="text-amber-700 text-sm">Az alábbi árak tájékoztató jellegűek és az anyagköltséget nem tartalmazzák (ha nincs jelölve). Pontos, végleges árajánlatot minden esetben helyszíni felmérés után adunk – <strong>ez ingyenes</strong>.</p>
-            </div>
+        <section className="max-w-4xl mx-auto px-4 py-12">
+          <h2 className="text-2xl font-bold mb-6 text-gray-900">Kiszállási díj és óradíj 2025-ben</h2>
+          <p className="text-gray-600 mb-6">
+            Az óradíj és a kiszállási díj az elvégzett munka jellegétől és az időponttól függ. Az alábbi táblázat a 2025-ös aktuális díjainkat tartalmazza.
+          </p>
+          <div className="overflow-x-auto rounded-xl border border-gray-200">
+            <table className="w-full border-collapse">
+              <thead className="bg-amber-500 text-white">
+                <tr>
+                  <th className="text-left p-4">Időszak</th>
+                  <th className="text-left p-4">Kiszállási díj</th>
+                  <th className="text-left p-4">Óradíj</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-gray-100"><td className="p-4">Munkanapon 8–17h</td><td className="p-4 font-medium">15 000 Ft</td><td className="p-4 font-medium">12 000 Ft/h</td></tr>
+                <tr className="border-b border-gray-100 bg-gray-50"><td className="p-4">Munkanapon 17–22h</td><td className="p-4 font-medium">20 000 Ft</td><td className="p-4 font-medium">15 000 Ft/h</td></tr>
+                <tr><td className="p-4">Hétvége / ünnep / éjszaka</td><td className="p-4 font-medium">25 000 Ft</td><td className="p-4 font-medium">18 000 Ft/h</td></tr>
+              </tbody>
+            </table>
           </div>
+          <p className="text-sm text-gray-500 mt-3">* Az óradíj az anyagköltséget nem tartalmazza. Minden munkához ingyenes árajánlatot adunk.</p>
+        </section>
 
-          <div className="space-y-10">
-            {priceTable.map(section => (
-              <div key={section.category}>
-                <h2 className="text-xl font-black text-gray-900 mb-4">{section.category}</h2>
-                <div className="overflow-hidden rounded-xl border border-gray-200">
-                  <table className="w-full text-sm">
-                    <thead className="bg-gray-50">
-                      <tr>
-                        <th className="text-left p-3 font-semibold text-gray-700">Munka</th>
-                        <th className="text-right p-3 font-semibold text-gray-700">Ár (tájékoztató)</th>
-                        <th className="text-right p-3 font-semibold text-gray-500 hidden sm:table-cell">Megjegyzés</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-gray-100">
-                      {section.items.map(item => (
-                        <tr key={item.name} className="hover:bg-gray-50">
-                          <td className="p-3 text-gray-700">{item.name}</td>
-                          <td className="p-3 text-right font-bold text-amber-600 whitespace-nowrap">{item.price}</td>
-                          <td className="p-3 text-right text-gray-400 text-xs hidden sm:table-cell">{item.note}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+        <section className="bg-gray-50 py-12">
+          <div className="max-w-4xl mx-auto px-4">
+            <h2 className="text-2xl font-bold mb-6 text-gray-900">Munka típusonkénti árak 2025</h2>
+            <div className="grid md:grid-cols-2 gap-4">
+              {[
+                { munka: 'Hibaelhárítás, diagnózis', ar: '15 000 Ft-tól' },
+                { munka: 'Konnektor / kapcsoló csere', ar: '5 000–8 000 Ft/db' },
+                { munka: 'Biztosítékszekrény csere', ar: '40 000–80 000 Ft' },
+                { munka: 'Lakás villanyszerelés (felújítás)', ar: '800–1 200 Ft/m²' },
+                { munka: 'EV töltő telepítés (11 kW)', ar: '120 000–180 000 Ft' },
+                { munka: 'Napelem rendszer bekötés', ar: 'Egyedi árajánlat' },
+                { munka: 'Főbiztosíték méret növelés', ar: '30 000–60 000 Ft' },
+                { munka: 'Okosotthon alaprendszer', ar: '150 000 Ft-tól' },
+              ].map((item) => (
+                <div key={item.munka} className="flex justify-between items-center p-4 bg-white rounded-xl border border-gray-200">
+                  <span className="text-gray-700">{item.munka}</span>
+                  <span className="font-bold text-amber-600 whitespace-nowrap ml-4">{item.ar}</span>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-12 bg-amber-500 rounded-2xl p-8 text-white text-center">
-            <h2 className="text-2xl font-black mb-3">Ingyenes árajánlat</h2>
-            <p className="text-amber-100 mb-6">Hívjon vagy írjon – 24 órán belül pontos árajánlatot küldünk!</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={`tel:${SITE.phone}`} className="bg-white text-amber-600 font-black px-8 py-3 rounded-xl hover:bg-amber-50 transition-colors">
-                📞 {SITE.phoneDisplay}
-              </a>
-              <Link href="/kapcsolat/" className="bg-amber-600 text-white font-bold px-8 py-3 rounded-xl hover:bg-amber-700 transition-colors border border-amber-400">
-                📋 Online ajánlatkérés
-              </Link>
-            </div>
-          </div>
-
-          <div className="mt-12">
-            <h2 className="text-xl font-black text-gray-900 mb-5">Kiszállási területeink</h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
-              {CITIES.map(c => (
-                <Link key={c.slug} href={`/${c.slug}/`}
-                  className="card text-center hover:border-amber-300 hover:bg-amber-50 transition-all text-sm font-medium text-gray-700 hover:text-amber-700 py-3">
-                  Villanyszerelő<br /><span className="font-bold">{c.name}</span>
-                </Link>
               ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <section className="max-w-4xl mx-auto px-4 py-12">
+          <h2 className="text-2xl font-bold mb-4 text-gray-900">Mire figyeljen az árajánlatnál?</h2>
+          <div className="space-y-4 text-gray-600">
+            <p>✅ <strong>Kérjen tételes árajánlatot</strong> – az anyagköltség és a munkadíj legyen külön feltüntetve.</p>
+            <p>✅ <strong>Az óradíj mellé kérjen becsült munkaórát</strong> – így tudja kalkulálni a végső összeget.</p>
+            <p>✅ <strong>Ellenőrizze a képesítést</strong> – csak regisztrált, engedéllyel rendelkező villanyszerelőt alkalmazzon.</p>
+            <p>✅ <strong>Kérjen számlát</strong> – a számlával ellátott munka garanciális és levonható az adóból (SZJA).</p>
+          </div>
+        </section>
+
+        <section className="bg-amber-500 text-white py-12">
+          <div className="max-w-2xl mx-auto px-4 text-center">
+            <h2 className="text-2xl font-bold mb-4">Kérjen ingyenes árajánlatot!</h2>
+            <p className="mb-6 text-amber-100">Írja le a feladatot és 24 órán belül visszahívjuk pontos árajánlattal.</p>
+            <a href={`tel:${SITE.phone}`} className="inline-block bg-white text-amber-600 font-bold text-xl px-10 py-4 rounded-xl hover:bg-amber-50 transition">
+              📞 {SITE.phoneDisplay}
+            </a>
+          </div>
+        </section>
+      </main>
+      <Footer />
     </>
   )
 }
-
