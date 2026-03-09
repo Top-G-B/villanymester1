@@ -306,8 +306,7 @@ export const BLOG_POSTS = [
 <p>Ingyenes helyszÃ­ni felmÃ©rÃ©s Ã©s rÃ©szletes Ã¡rajÃ¡nlat Ãrden, GÃ¶dÃ¶llÅn, Dunakeszin, SzentendrÃ©n Ã©s VÃ¡con. HÃ­vjon most!</p>
     `
   },
-
-  ,{
+  {
     slug: 'villanyszerelo-arak-2025',
     title: 'Villanyszerelő Árak 2025 – Mennyi az Óradíj? [Teljes Árlista]',
     date: '2025-03-10',
