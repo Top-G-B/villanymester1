@@ -309,9 +309,14 @@ export const BLOG_POSTS = [
   {
     slug: 'villanyszerelo-arak-2025',
     title: 'Villanyszerelő Árak 2025 – Mennyi az Óradíj? [Teljes Árlista]',
+    metaTitle: 'Villanyszerelő Árak 2025 – Óradíj, Kiszállási Díj | Villanymester',
+    metaDescription: 'Villanyszerelő árak 2025-ben: kiszállási díj 15 000 Ft-tól, óradíj 12 000 Ft/h. Teljes árlista Pest megye területére. Díjmentes árajánlat.',
     date: '2025-03-10',
     readTime: '8 perc',
     category: 'Árak',
+    categoryColor: 'bg-green-100 text-green-700',
+    keywords: ['villanyszerelő árak 2025', 'villanyszerelő óradíj', 'villanyszerelés ára'],
+    image: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800',
     excerpt: 'Mennyi a villanyszerelő óradíja 2025-ben? Kiszállási díj, munkadíj, anyagköltség – teljes áttekintés.',
     content: `
 <h2>Villanyszerelő árak 2025-ben – mi változott?</h2>
@@ -353,9 +358,14 @@ export const BLOG_POSTS = [
   {
     slug: 'sos-villanyszerelo-mikor-hivjon',
     title: 'SOS Villanyszerelő – Mikor és Hogyan Hívjon? [Útmutató]',
+    metaTitle: 'SOS Villanyszerelő – Mikor Hívjon? Útmutató | Villanymester',
+    metaDescription: 'SOS villanyszerelő: mikor kell azonnal hívni? Áramszünet, szikrázás, kioldó biztosíték – útmutató vészhelyzetekre. 0-24 kiszállás Pest megyében.',
     date: '2025-03-08',
     readTime: '6 perc',
     category: 'Útmutató',
+    categoryColor: 'bg-red-100 text-red-700',
+    keywords: ['sos villanyszerelő', 'éjszakai villanyszerelő', 'sürgős villanyszerelő'],
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800',
     excerpt: 'Áramszünet, szikrázás, kioldó biztosíték – mikor kell azonnal SOS villanyszerelőt hívni? Útmutató vészhelyzetekre.',
     content: `
 <h2>Mikor kell SOS villanyszerelő?</h2>
@@ -383,9 +393,14 @@ export const BLOG_POSTS = [
   {
     slug: 'kivitelezoi-nyilatkozat-minta',
     title: 'Villanyszerelő Kivitelezői Nyilatkozat – Minta és Útmutató',
+    metaTitle: 'Kivitelezői Nyilatkozat Minta – Villanyszerelő | Villanymester',
+    metaDescription: 'Villanyszerelő kivitelezői nyilatkozat: mi ez, mikor kötelező, hogyan kell kitölteni? Útmutató és minta. EON, MVM regisztrált villanyszerelő Pest megyében.',
     date: '2025-03-05',
     readTime: '7 perc',
     category: 'Útmutató',
+    categoryColor: 'bg-blue-100 text-blue-700',
+    keywords: ['kivitelezői nyilatkozat', 'villanyszerelő nyilatkozat', 'eon regisztrált villanyszerelő'],
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800',
     excerpt: 'Mi az a kivitelezői nyilatkozat, mikor kötelező és hogyan kell kitölteni? Útmutató és minta villanyszerelőknek és megrendelőknek.',
     content: `
 <h2>Mi az a kivitelezői nyilatkozat?</h2>
